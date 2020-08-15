@@ -1,6 +1,6 @@
-object NQueenSample extends App {
+object NQueenSample {
 
-  val N: Int = 5;
+  val N: Int = 6;
 
   def placeQueens(k: Int): List[List[(Int, Int)]] = {
     if (k == 0)
@@ -15,18 +15,21 @@ object NQueenSample extends App {
 
     }
   }
-  val solutions = placeQueens(N)
-  println(solutions.size + " solutions found")
-  // print the board of the first solution
-  for (queen <- solutions.head; x <- 1 to N) {
-    if (queen._2 == x) print("Q ") else print(". ")
-    if (x == N) println()
-  }
 
-  println("------------------------------------------")
-  for (queen <- solutions.tail.head; x <- 1 to N) {
-    if (queen._2 == x) print("Q ") else print(". ")
-    if (x == N) println()
+  def main(args: Array[String]) = {
+    val solutions = placeQueens(N)
+    println(solutions.size + " solutions found")
+    // print the board of the first solution
+    for (queen <- solutions.head; x <- 1 to N) {
+      if (queen._2 == x) print("Q ") else print(". ")
+      if (x == N) println()
+    }
+
+    println("------------------------------------------")
+    for (queen <- solutions.tail.head; x <- 1 to N) {
+      if (queen._2 == x) print("Q ") else print(". ")
+      if (x == N) println()
+    }
   }
 
   def isSafe(queen: (Int, Int), queens: List[(Int, Int)]): Boolean = {
