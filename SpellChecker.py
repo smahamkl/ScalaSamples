@@ -18,8 +18,6 @@ class SpellChecker:
                 index += 1
 
     def isMatch(self, strings):
-        print(self.min)
-        print(self.max)
         for string in strings:
             index = 0
             if (len(string) >= self.min) & (len(string) <= self.max):
@@ -35,5 +33,3 @@ if __name__ == "__main__":
     sc = SpellChecker()
     sc.setUp(['cat', 'bat', 'rat', 'drat', 'dart', 'drab'])
     sc.isMatch(['act','c.t','.at','..t','d..t','dr..','...','....', '.....', 'h.t', 'c', '.'])
-    # for word in checks:
-    #     print(speller.isMatch(word))
