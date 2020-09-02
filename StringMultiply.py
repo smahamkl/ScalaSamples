@@ -48,5 +48,4 @@ class StringMultiply:
 if __name__ == "__main__":
     sm = StringMultiply()
     print(sm.multiply2("123456789", "987654321"))
-    print(ord('c') - ord('a'))
     #sm.multiply("123456789", "3")
