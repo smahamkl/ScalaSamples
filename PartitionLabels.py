@@ -1,4 +1,5 @@
 from typing import List
+from collections import OrderedDict
 
 '''
 Leet code Sep 2020 Challenge
@@ -23,13 +24,14 @@ class Solution:
             if partDict[key] != '':
                 val = list(filter(None, partDict[key].split(":")))
                 partDict1[int(val[0])] = int(val[len(val) - 1])
-        #print(self.partDict1)
+        partDict1 = dict(sorted(partDict1.items()))
+        #print(partDict1)
         res = []
         
-        tempKey = next(iter(sorted(partDict1)))
+        tempKey = next(iter(partDict1))
         tempVal = partDict1[tempKey]
 
-        for key in sorted(partDict1):
+        for key in partDict1:
             if (key <= tempVal) & (partDict1[key] > tempVal):
                  tempVal = partDict1[key]
             elif key > tempVal:
