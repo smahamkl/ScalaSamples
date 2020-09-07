@@ -24,14 +24,21 @@ Input: A = [[1,1,0],
 Output: 3
 Explanation: We slide A to right by 1 unit and down by 1 unit.
 '''
-#***Solution that works copied from the discussion board from Leetcode ****
+#***Working Solution, copied from the discussion board on Leetcode ****
 class Solution1:
+    '''
+    The logic here is to first get the coordinates of both the lists  A & B having the bit value '1'
+    Then check the distance between x & y coordinates(ax-bx, bx-by) for each combination of coordinate values and form a list of tuples
+    Using the collections counter class, aggregating/count the tuples having the same distance between the coordinstes
+    Of all the tuples, the tuple having the maximum count will be solution to the most overlapped binary bit cells from both the lists 
+    '''
     def largestOverlap(self, A: List[List[int]], B: List[List[int]]) -> int:
         A= [(i,j) for i, row in enumerate(A) for j , item in enumerate(row) if item ]
         B =[(i,j) for i , row in enumerate(B) for j , item in enumerate(row) if item ]
         count=collections.Counter((ax-bx,ay-by) for ax, ay in A for bx,by in B)
         return max(count.values() or [0])
 
+#----------------Solution I have tried----------------------------------
 class Solution:
     def __init__(self):
         self.N = 0
@@ -84,52 +91,8 @@ class Solution:
             B[i][0] = 0
         return B
 
-    # def decimalVal(self, A: List[int]) -> int:
-    #     sum = 0
-    #     totalBits = 0
-    #     if len(A) == 0:
-    #         return 0
-    #     else:
-    #         j = len(A) - 1
-    #         for i in range(len(A)):
-    #             sum += (2 ** j) * A[i]
-    #             j -= 1
-    #             if A[i] == 1:
-    #                 totalBits +=1
-    #     return sum, totalBits
-
-    # def hammingWeight(self, n):
-    #   """
-    #   :type n: int
-    #   :rtype: int
-    #   """
-    #   n = str(bin(n))
-    #   #print(n)
-    #   one_count = 0
-    #   for i in n:
-    #      if i == "1":
-    #         one_count+=1
-    #   return one_count
-
     def largestOverlap(self, A: List[List[int]], B: List[List[int]]) -> int:
-        # A1 = []
-        # B1 = []
-        # self.N = len(A)
         res = 0
-        # for eachList in A:
-        #     for item in eachList:
-        #         A1.append(item)
-
-        # for eachList in B:
-        #     for item in eachList:
-        #         B1.append(item)
-        # print("Size of the matrix: " + str(self.N))
-        # print("list 1: " + str(A1))
-        # print("list 2: " + str(B1))
-        # sum1, tb1 = self.decimalVal(A1)
-        # print("decimal value of A1: " + str(sum1) + " total bits: " + str(tb1))
-        # sum2, tb2 = self.decimalVal(B1)
-        # print("decimal value of B1: " + str(sum2) + " total bits: " + str(tb2))
 
         minL = min(A, B)
         maxL = max(A, B)
@@ -174,7 +137,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-    sol = Solution()
+    sol = Solution1()
     # print(sol.shiftUp([[1, 1, 0], [0, 1, 0], [0, 1, 0]]))
     # print(sol.shiftDown([[1, 1, 0], [0, 1, 0], [0, 1, 0]]))
     # print(sol.shiftLeft([[1, 1, 0], [0, 1, 0], [0, 1, 0]]))
