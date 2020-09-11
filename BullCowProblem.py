@@ -34,32 +34,23 @@ class Solution:
         corPred=0
         misPred=0
         secretMap = defaultdict(self.def_value)
+        matches = []
 
         for i, char in enumerate(secret):
-            if char in secretMap:
-                secretMap[char] += [i]
+            if secret[i] == guess[i]:
+                corPred+=1
+                matches += [i]
             else:
-                secretMap[char] = [i]
-
-        remaining = ""
-        for i, char in enumerate(guess):
-            if (char in secretMap) & (i in secretMap[char]):
-                secretMap[char].remove(i)
-                corPred += 1
-            else:
-                remaining += char
+                if char in secretMap:
+                    secretMap[char] += [i]
+                else:
+                    secretMap[char] = [i]
         
-        #print(remaining)
-        for i, char in enumerate(remaining):
-            if (char in secretMap) & (len(secretMap[char]) > 0):
+        for i, char in enumerate(guess):
+            if (i not in matches) & (char in secretMap) & (len(secretMap[char]) > 0):
                 secretMap[char].pop()
                 misPred += 1
-
-
-        #print("Total bulls:" + str(corPred))
-        #print("Total cows:" + str(misPred))
-        
-
+                
         return str(corPred) + "A" + str(misPred) + "B"
 
 
