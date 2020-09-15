@@ -42,7 +42,13 @@ class Solution:
             else:
                 if pattern[i] not in charMap:
                     charMap[pattern[i]] = i
-
+                
+                #--The character position in the WordMap will always point to the first time
+                #  the character was encountered and for non-repeated characters the below condition
+                # (charMap[pattern[i]] = i) holds true
+                #--so the first condition is to check if there is a discrepancy
+                #--between pattern character repitition and word repetition inside the sentence
+                #--if so, return fasle
                 if (charMap[pattern[i]] == i) & (strList[i] in wordMap):
                     return False
                 elif strList[i] != strList[charMap[pattern[i]]]:
