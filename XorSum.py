@@ -17,4 +17,5 @@ class Solution:
 if __name__ == "__main__":
     sol = Solution()
     print(sol.findMaximumXOR([3, 10, 5, 25, 2, 8]))
+    print(int("1101", 2))
     
