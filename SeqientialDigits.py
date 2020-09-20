@@ -3,19 +3,13 @@ from typing import List
 class Solution:
     def sequentialDigits(self, low: int, high: int) -> List[int]:
         digitySeq="123456789"
-        if low >= high:
-            if str(low) in digitySeq:
-                return low
-            else:
-                return []
-
         l = len(str(low))
         r = len(str(high))
         res = []
         for i in range(l, r+1):
             for j in range(len(digitySeq)-i+1):
                 num = int(digitySeq[j:i+j])
-                if (num >= low) & (num <= high):
+                if (num >= low) and (num <= high):
                     res.append(num)
 
         return res
