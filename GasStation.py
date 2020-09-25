@@ -49,16 +49,16 @@ class Solution:
         if (len(gas) == 1) and (gas[0] >= cost[0]):
             return 0
 
-        gas1 = [x for x in gas] + [x for x in gas]
-        cost1 = [x for x in cost] + [x for x in cost]
+        gas1 = [x for x in gas]*2
+        cost1 = [x for x in cost]*2
         minGas = [gas1[i] - cost1[i] for i in range(len(gas1))]
-        print(minGas)
+        #print(minGas)
         for i in range(len(gas)):
             if minGas[i] > 0:
-                print("value of i:" + str(i))
+                #print("value of i:" + str(i))
                 bal = 0
                 for j in range(len(gas)):
-                    print(bal)
+                    #print(bal)
                     bal += minGas[i+j]
                     if bal < 0:
                         break
