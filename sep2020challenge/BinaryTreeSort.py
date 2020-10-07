@@ -50,7 +50,7 @@ class Solution:
             if root.left != None:
                 self.inorderTraversal(root.left, elements)
             
-            if (root != None) & (root.val != None):
+            if root.val != None:
                 elements.append(root.val)
 
             if root.right != None:
