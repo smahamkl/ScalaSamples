@@ -51,7 +51,9 @@ class Solution:
             return 0
         elif len(points) == 1:
             return 1
-        points = sorted(points)
+        #points = sorted(points)
+        points = sorted(points, key=lambda x: x[1])
+        print(points)
         from_point = points[0]
         tot_arrows = 1
         for i in range(1, len(points)):
@@ -68,8 +70,8 @@ class Solution:
 
 sol = Solution()
 print(sol.findMinArrowShots([[10,16],[2,8],[1,6],[7,12],[7,14]]))
-print(sol.findMinArrowShots([[1,2],[3,4],[5,6],[7,8]]))
-print(sol.findMinArrowShots([[1,2],[2,3],[3,4],[4,5]]))
-print(sol.findMinArrowShots([[1,2]]))
-print(sol.findMinArrowShots([[2,3],[2,3]]))
-print(sol.findMinArrowShots([]))
+# print(sol.findMinArrowShots([[1,2],[3,4],[5,6],[7,8]]))
+# print(sol.findMinArrowShots([[1,2],[2,3],[3,4],[4,5]]))
+# print(sol.findMinArrowShots([[1,2]]))
+# print(sol.findMinArrowShots([[2,3],[2,3]]))
+# print(sol.findMinArrowShots([]))
