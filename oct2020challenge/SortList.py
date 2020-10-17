@@ -56,8 +56,8 @@ class Solution:
         return TempNode.next
 
 
-#node = ListNode(4)
-#node.next = ListNode(2)
-#node.next.next = ListNode(1)
-#node.next.next.next = ListNode(3)
-print(Solution().sortList(None).val)
+node = ListNode(4)
+node.next = ListNode(2)
+node.next.next = ListNode(1)
+node.next.next.next = ListNode(3)
+print(Solution().sortList(node).val)
