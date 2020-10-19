@@ -19,11 +19,11 @@ Output: ["AAAAAAAAAA"]
 '''
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
-        if len(s) <= 10:
-            return []
+        # if len(s) <= 10:
+        #     return []
         return [x for x, count in collections.Counter([s[i:i+10] for i in range(len(s)-9)]).items() if count > 1]
 
 sol= Solution()
 #sol.findRepeatedDnaSequences("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT")
 #print(sol.findRepeatedDnaSequences("AAAAAAAAAAAAA"))
-print(sol.findRepeatedDnaSequences("AAAAAAAAAAA"))
+print(sol.findRepeatedDnaSequences("AAAAA"))
