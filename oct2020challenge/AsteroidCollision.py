@@ -20,34 +20,49 @@ Output: []
 Explanation: The 8 and -8 collide exploding each other.
 '''
 class Solution:
-    def asteroidCollision(self, asteroids: List[int]) -> List[int]:
-        if len(asteroids) == 0:
-            return asteroids
+    # def asteroidCollision(self, asteroids: List[int]) -> List[int]:
+    #     if len(asteroids) <= 1:
+    #         return asteroids
+        
+    #     ast_stack = []
+    #     for i in range(len(asteroids)-1):
+    #         if asteroids[i] + asteroids[i+1] == 0:
+    #             i+=1
+    #         elif asteroids[i] > 0  and  asteroids[i+1] < 0:
+    #             winner = asteroids[i+1] if (asteroids[i] + asteroids[i+1]) > 0 else asteroids[i]
+    #             asteroids[i+1] = winner
+    #         else:
+    #             ast_stack.append(asteroids[i])
+        
+    #     print(asteroids)
+    #     print(ast_stack)
 
-        ast_stack = [asteroids[0]]
-        for idx in range(1, len(asteroids)):
+
+    def asteroidCollision(self, asteroids: List[int]) -> List[int]:
+        if len(asteroids) <= 1:
+            return asteroids
+        ast_stack = []
+        for idx in range(len(asteroids)):
             if asteroids[idx] > 0 or len(ast_stack) == 0 or ast_stack[-1] < 0:
                 ast_stack.append(asteroids[idx])
             elif asteroids[idx] < 0:
                 winner = asteroids[idx]
-                iterate = True
-                while iterate:
+                while True:
                     if len(ast_stack) == 0 :
                         break
                     if (winner < 0 and ast_stack[-1] > 0):
                         ele = ast_stack.pop()
-                        #print(winner, ele)
                         if winner + ele > 0:
                             ast_stack.append(ele)
-                            iterate = False
+                            break
                         elif winner + ele == 0:
-                            iterate = False
+                            break
                         elif (winner + ele) < 0 and len(ast_stack) == 0:
                             ast_stack.append(winner)
-                            iterate = False
+                            break
                     else:
                         ast_stack.append(winner)
-                        iterate = False
+                        break
         return ast_stack
 sol = Solution()
 print(sol.asteroidCollision([5,10,-5]))
