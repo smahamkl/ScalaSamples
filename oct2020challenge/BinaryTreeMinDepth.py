@@ -13,7 +13,6 @@ class Solution:
         elif root.right == None:
             return self.findDepth(root.left, depth+1)
         elif root.left == None:
-            print(root.val)
             return self.findDepth(root.right, depth+1)
         else:
             return min(self.findDepth(root.left, depth+1), self.findDepth(root.right, depth+1))
@@ -26,13 +25,10 @@ class Solution:
 
     def buildTree(self, nodes: List[int], curVal: int, root: TreeNode) -> TreeNode:
         if curVal < len(nodes):
-            if curVal != 0:
+            if nodes[curVal] != 0:
                 root = TreeNode(nodes[curVal])
-                root.left = self.buildTree(nodes, ((2 * curVal) + 1), root.left)
-                root.right = self.buildTree(nodes, ((2 * curVal) + 2), root.right)
-            else:
-                root = None
-
+                root.left = self.buildTree(nodes, (curVal + 1), root.left)
+                root.right = self.buildTree(nodes, (curVal + 2), root.right)
         return root
 
 sol = Solution()
@@ -43,8 +39,4 @@ sol = Solution()
 # print(sol.minDepth(root))
 
 root = sol.buildTree([2,0,3,0,4,0,5,0,6], 0, None)
-print(root.val)
-#print(root.right.val)
-# print(root.right.right.val)
-# print(root.right.right.right.val)
-#print(sol.minDepth(root))
+print(sol.minDepth(root))
