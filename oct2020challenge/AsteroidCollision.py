@@ -20,24 +20,6 @@ Output: []
 Explanation: The 8 and -8 collide exploding each other.
 '''
 class Solution:
-    # def asteroidCollision(self, asteroids: List[int]) -> List[int]:
-    #     if len(asteroids) <= 1:
-    #         return asteroids
-        
-    #     ast_stack = []
-    #     for i in range(len(asteroids)-1):
-    #         if asteroids[i] + asteroids[i+1] == 0:
-    #             i+=1
-    #         elif asteroids[i] > 0  and  asteroids[i+1] < 0:
-    #             winner = asteroids[i+1] if (asteroids[i] + asteroids[i+1]) > 0 else asteroids[i]
-    #             asteroids[i+1] = winner
-    #         else:
-    #             ast_stack.append(asteroids[i])
-        
-    #     print(asteroids)
-    #     print(ast_stack)
-
-
     def asteroidCollision(self, asteroids: List[int]) -> List[int]:
         if len(asteroids) <= 1:
             return asteroids
@@ -50,19 +32,20 @@ class Solution:
                 while True:
                     if len(ast_stack) == 0 :
                         break
-                    if (winner < 0 and ast_stack[-1] > 0):
-                        ele = ast_stack.pop()
-                        if winner + ele > 0:
-                            ast_stack.append(ele)
-                            break
-                        elif winner + ele == 0:
-                            break
-                        elif (winner + ele) < 0 and len(ast_stack) == 0:
-                            ast_stack.append(winner)
-                            break
-                    else:
+                    if winner > 0:
                         ast_stack.append(winner)
                         break
+                    elif (winner < 0 and ast_stack[-1] > 0):
+                        ele = ast_stack.pop()
+                        winner += ele
+                        if winner > 0:
+                            ast_stack.append(ele)
+                            break
+                        elif winner == 0:
+                            break
+                        elif winner < 0 and len(ast_stack) == 0:
+                            ast_stack.append(winner-ele)
+                            break
         return ast_stack
 sol = Solution()
 print(sol.asteroidCollision([5,10,-5]))
