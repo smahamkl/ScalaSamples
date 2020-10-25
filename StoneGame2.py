@@ -1,61 +1,90 @@
 from typing import List
 import math
+'''
+Alice and Bob take turns playing a game, with Alice starting first.
 
+Initially, there are n stones in a pile.  On each player's turn, that player makes a move consisting of removing any non-zero square number 
+of stones in the pile.
+
+Also, if a player cannot make a move, he/she loses the game.
+
+Given a positive integer n. Return True if and only if Alice wins the game otherwise return False, assuming both players play optimally.
+
+Example 1:
+
+Input: n = 1
+Output: true
+Explanation: Alice can remove 1 stone winning the game because Bob doesn't have any moves.
+Example 2:
+
+Input: n = 2
+Output: false
+Explanation: Alice can only remove 1 stone, after that Bob removes the last one winning the game (2 -> 1 -> 0).
+Example 3:
+
+Input: n = 4
+Output: true
+Explanation: n is already a perfect square, Alice can win with one move, removing 4 stones (4 -> 0).
+Example 4:
+
+Input: n = 7
+Output: false
+Explanation: Alice can't win the game if Bob plays optimally.
+If Alice starts removing 4 stones, Bob will remove 1 stone then Alice should remove only 1 stone and finally Bob removes the last one (7 -> 3 -> 2 -> 1 -> 0). 
+If Alice starts removing 1 stone, Bob will remove 4 stones then Alice only can remove 1 stone and finally Bob removes the last one (7 -> 6 -> 2 -> 1 -> 0).
+Example 5:
+
+Input: n = 17
+Output: false
+Explanation: Alice can't win the game if Bob plays optimally.
+ 
+
+Constraints:
+
+1 <= n <= 10^5
+'''
 class Solution:
     def winnerSquareGame(self, n: int) -> bool:
-        while True:
-            #---Alice is playing----
-            possible_states_alice = []
-            squared_steps = math.floor(n ** 0.5)
-            possible_states_alice.append(n-1)
-            #print("value of n:" + str(n))
-            if n - (squared_steps ** 2) == 0:
-                    return True
-            while squared_steps >= 2:
-                possible_states_alice.append(n - (squared_steps ** 2))
-                squared_steps -= 1
-            
-            print(possible_states_alice)
-            #---Alice is not playing---
-            #--check if each of them is a winning state--
-            #--return an optimal value-----
-            #---probably an odd number
-            alice_lost = True
-            if len(possible_states_alice) == 1 and possible_states_alice[0] < 4:
-                if possible_states_alice[0] % 2 == 0:
-                    return True
-                else:
-                    return False
-            for state in possible_states_alice:
-                if (1 < state < 4 and state % 2 == 1):
-                    alice_lost = False
-                    n = state-1
-                    break
-                squared_steps = math.floor(state ** 0.5)
-                while squared_steps >= 2: 
-                    #print("squared steps:" + str(squared_steps))
-                    if ((state - (squared_steps ** 2)) % 2) == 0:
-                        n = state - (squared_steps ** 2)
-                        alice_lost = False
+        square=[i**2 for i in range(1,int(n**0.5)+1)]
+        print(square)
+        dp=[False]*(n+1)
+        for i in range(1,n+1):
+        '''
+        //as dp[i] is false, any square numbers from here onwards should return true,
+        //so if dp[17] is false, dp[17+4], dp[17+9] and so on are true, as ALice can remove 4 and 9 from stones and return dp[17] to Bob and hence bob will fail
+        '''
+            for s in square:
+                if s<=i:
+                    if dp[i-s]==False:
+                        dp[i]=True
                         break
-                    squared_steps -= 1
-                # if state % 2 == 1:
-                #     alice_lost = False
-                #     n = state-1
-                #     break
-                if not alice_lost:
+                else:
                     break
-            print("value of n after bob played:" + str(n))
-            if alice_lost:
-                return False
-            
-                
+        print(dp)
+        return dp[-1]
+        
+
 
 sol = Solution()
-print(sol.winnerSquareGame(17))
+print(sol.winnerSquareGame(49))
+# print("------------------------")
 # print(sol.winnerSquareGame(18))
-#print(sol.winnerSquareGame(5))
+# print("------------------------")
+# print(sol.winnerSquareGame(5))
+# print("------------------------")
 #print(sol.winnerSquareGame(8))
-#print(sol.winnerSquareGame(30))
-#print(sol.winnerSquareGame(3))
-#print(sol.winnerSquareGame(13))
+# print("------------------------")
+# print(sol.winnerSquareGame(30))
+# print("------------------------")
+# print(sol.winnerSquareGame(3))
+# print("------------------------")
+# print(sol.winnerSquareGame(13))
+# print("------------------------")
+# print(sol.winnerSquareGame(8))
+# print("------------------------")
+# print(sol.winnerSquareGame(1))
+# print("------------------------")
+# print(sol.winnerSquareGame(7))
+# print("------------------------")
+# print(sol.winnerSquareGame(15))
+#print(sol.winnerSquareGame(47))
