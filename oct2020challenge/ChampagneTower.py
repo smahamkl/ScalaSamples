@@ -36,7 +36,6 @@ class Solution:
                 #--check if champagne poured is greater than its capacity to spill down to the bottom glasses
                 if poured > 1:
                     poured -= 1
-                    
                     #--now take remaining champagne and spill to bottom glasses---
                     glass[row+1][col] += poured/2
                     glass[row+1][col+1] += poured/2
