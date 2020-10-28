@@ -39,12 +39,10 @@ class Solution:
         elif n < 0: x, n = 1/x, abs(n)
         res, t = x, 1
         while n > 1:
-            print(n, t, res)
             if n % 2: t *= res
             n //= 2
             res *= res
             
-        print(res, t)
         return res * t
 
 sol = Solution()
