@@ -13,7 +13,7 @@ Follow up:
 Can you solve it using O(1) (i.e. constant) memory?
 
 Constraints:
-
+--------------
 The number of the nodes in the list is in the range [0, 104].
 -105 <= Node.val <= 105
 pos is -1 or a valid index in the linked-list.
@@ -32,7 +32,7 @@ z = distance of the other half of the loop through which fast pointer moves befo
 Since fastPointer travels with double the speed of slowPointer, and time is constant for both when the reach the meeting point. 
 So by using simple speed, time and distance relation (slowPointer traveled half the distance):
 
-2∗dist(slowPointer)2(x+y)2x+2yx =  dist(fastPointer)=x+2y+z=x+2y+z=z
+2∗dist(slowPointer) = 2(x+y) =  2x+2y = x =  dist(fastPointer)= x+2y+z = x+2y+z= z
 
 Hence by moving slowPointer to start of linked list and fast pointer start moving from the point where they initially meet, 
 and making both slowPointer and fastPointer to move one node at a time, they both have same distance to cover.
