@@ -73,12 +73,11 @@ Also there is a detailed explanation documented on google drive
                 data[new_len][0] = min(n,data[new_len][0])
             print("value of n:", n, " new_length value:",  new_len)
             print(data)
-        print(data)
         return(sum(data[-1][1].values()) if nums else 0)
 
         
 sol = Solution()
-print(sol.findNumberOfLIS([1,3,5,4,7]))
+print(sol.findNumberOfLIS([1,3,5,4,2,7,6]))
 #print(sol.findNumberOfLIS([2,2,2,2,2]))
 #print(sol.findNumberOfLIS([1,4,4,4]))
 #print(sol.findNumberOfLIS([1,2,4,3,5,4,7,2]))
