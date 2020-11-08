@@ -28,11 +28,11 @@ Tilt of node 9 : |0-7| = 7 (no left child, so sum is 0; right subtree is just ri
 Tilt of node 4 : |(3+5+2)-(9+7)| = |10-16| = 6 (left subtree values are 3, 5, and 2, which sums to 10; right subtree values are 9 and 7, which sums to 16)
 Sum of every tilt : 0 + 0 + 0 + 2 + 7 + 6 = 15
 '''
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
 class Solution:
     def __init__(self):
