@@ -18,7 +18,7 @@ SOLUTION:
 ---------
 Since the list starts with the most significant degit at the head position, we need to solve it using
 recursion. One workaround is to make the two lists of same size by appending 0s at the beginning to the
-smaller list and then add them using recursion
+smaller list and then perform the addition them using recursion
 '''
 class ListNode:
     def __init__(self, val=0, next=None):
