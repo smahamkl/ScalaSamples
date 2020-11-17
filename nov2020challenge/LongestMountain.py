@@ -23,9 +23,6 @@ Explanation: There is no mountain.
 '''
 class Solution:
     def longestMountain(self, A: List[int]) -> int:
-        if len(A) < 3:
-            return 0
-        
         lsize = 1
         rsize = 0
         mtnsize = 0
@@ -58,3 +55,4 @@ print(sol.longestMountain([2,3,2,2,2,2,2,2]))
 print(sol.longestMountain([2,2,2]))
 print(sol.longestMountain([2,3,4]))
 print(sol.longestMountain([4,3,2]))
+print(sol.longestMountain([2]))
