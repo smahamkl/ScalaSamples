@@ -52,8 +52,10 @@ class Solution:
                     dp[i] += len(D) ** (K-i-1)
                 elif d == S[i]:
                     dp[i] += dp[i+1]
-
-        return dp[0] + sum(len(D) ** i for i in range(1, K))
+                print(i, d, dp)
+        tmp = [len(D) ** i for i in range(1, K)]
+        print(tmp)
+        return dp[0] + sum(tmp)
     # def atMostNGivenDigitSet(self, digits: List[str], n: int) -> int:
     #     if len(digits) <= 1:
     #         return len(digits)
@@ -104,12 +106,12 @@ class Solution:
         
 
 sol = Solution()
-print(sol.atMostNGivenDigitSet(["1","3","5","7"], 100))
-print(sol.atMostNGivenDigitSet(["1","4","9"], 1000000000))
-print(sol.atMostNGivenDigitSet(["7","1"], 89))
-print(sol.atMostNGivenDigitSet(["7","1"], 1))
-print(sol.atMostNGivenDigitSet(["7","1"], 7))
-print(sol.atMostNGivenDigitSet(["7","1"], 777))
-print(sol.atMostNGivenDigitSet(["3", "4", "5", "6"], 644))
-print(sol.atMostNGivenDigitSet(["5", "6"], 19))
+# print(sol.atMostNGivenDigitSet(["1","3","5","7"], 100))
+# print(sol.atMostNGivenDigitSet(["1","4","9"], 1000000000))
+# print(sol.atMostNGivenDigitSet(["7","1"], 89))
+# print(sol.atMostNGivenDigitSet(["7","1"], 1))
+# print(sol.atMostNGivenDigitSet(["7","1"], 7))
+# print(sol.atMostNGivenDigitSet(["7","1"], 777))
+# print(sol.atMostNGivenDigitSet(["3", "4", "5", "6"], 644))
+# print(sol.atMostNGivenDigitSet(["5", "6"], 19))
 print(sol.atMostNGivenDigitSet(["2","3","4","6","8"], 61))
