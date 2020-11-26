@@ -23,6 +23,15 @@ Example 3:
 Input: K = 3
 Output: 3
 Explanation: The smallest answer is N = 111, which has length 3.
+
+Solution:
+-----------
+we can improve this algorithm with Pigeonhole Principle. Recall that the number of possible values of remainder (ranging from 0 to K-1) is limited, and in fact, 
+the number is K. As a result, if the while-loop continues more than K times, and haven't stopped, then we can conclude that remainder repeats -- you can not have more than K different remainder.
+
+Hence, if N exists, the while-loop must return length_N in the first K loops. Otherwise, it goes into an infinite loop.
+
+Therefore, we can just run the while-loop K times, and return -1 if not stopped.
 '''
 class Solution:
     def smallestRepunitDivByK(self, K: int) -> int:
