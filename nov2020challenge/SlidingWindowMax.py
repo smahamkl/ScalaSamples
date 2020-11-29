@@ -40,10 +40,10 @@ class Solution:
         return res
 
 sol = Solution()
-# print(sol.maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3))
-# print(sol.maxSlidingWindow([1], 1))
-# print(sol.maxSlidingWindow([1,-1], 1))
-# print(sol.maxSlidingWindow([9,11], 2))
-# print(sol.maxSlidingWindow([4,-2], 2))
-# print(sol.maxSlidingWindow([7,2,4], 2))
+print(sol.maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3))
+print(sol.maxSlidingWindow([1], 1))
+print(sol.maxSlidingWindow([1,-1], 1))
+print(sol.maxSlidingWindow([9,11], 2))
+print(sol.maxSlidingWindow([4,-2], 2))
+print(sol.maxSlidingWindow([7,2,4], 2))
 print(sol.maxSlidingWindow([9,10,9,-7,-4,-8,2,-6], 5))
