@@ -1,24 +1,18 @@
-import java.util.ArrayList;
-
 public class KthFactorOfN {
-    ArrayList<Integer> factors = new ArrayList<Integer>();
-
-    public void findFactors(int n) {
-      for(int i=1;i<=n;i++){
-         if(n % i == 0)
-            factors.add(i);
-      }
-    }
 
     public int kthFactor(int n, int k) {
-        findFactors(n);
-        if(factors.size() >= k)
-            return factors.get(k-1);
-        else
-            return -1;
+        for(int i=1;i<=n/2;i++){
+            if(n % i == 0)
+               k--;
+            if(k == 0)
+                return i;
+         }
+         if(k == 1)
+            return n;
+         return -1;
     }
 
     public static void main(String[] args) {
-        System.out.println(new KthFactorOfN().kthFactor(4,4));
+        System.out.println(new KthFactorOfN().kthFactor(1000,3));
     }
 }
