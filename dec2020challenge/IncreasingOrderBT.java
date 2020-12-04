@@ -1,5 +1,3 @@
-package dec2020challenge;
-
 class IncreasingOrderBT {
 
     // Definition for a binary tree node.
@@ -30,9 +28,9 @@ class IncreasingOrderBT {
             return;
 
         inorder(root.left);
-        pointer.right.left = null;
+        root.left = null;
         pointer.right = root;
-        pointer = root;
+        pointer = pointer.right;
         inorder(root.right);
 
     }
@@ -53,14 +51,13 @@ class IncreasingOrderBT {
         TreeNode root = bst.new TreeNode(5);
         root.left = bst.new TreeNode(3);
         root.right = bst.new TreeNode(6);
-        root.left.left = bst.new TreeNode(2);
-        root.left.right = bst.new TreeNode(4);
-        root.right.right = bst.new TreeNode(8);
-        root.left.left.left = bst.new TreeNode(1);
-        root.right.right.left = bst.new TreeNode(7);
-        root.right.right.right = bst.new TreeNode(9);
+        // root.left.left = bst.new TreeNode(2);
+        // root.left.right = bst.new TreeNode(4);
+        // root.right.right = bst.new TreeNode(8);
+        // root.left.left.left = bst.new TreeNode(1);
+        // root.right.right.left = bst.new TreeNode(7);
+        // root.right.right.right = bst.new TreeNode(9);
         TreeNode newroot = bst.increasingBST(root);
-        // System.out.println(newroot.val);
         System.out.println(newroot.val);
     }
 
