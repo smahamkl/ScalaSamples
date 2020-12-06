@@ -14,6 +14,8 @@ Example 2:
 Input: flowerbed = [1,0,0,0,1], n = 2
 Output: false
 */
+package dec2020challenge;
+
 public class CanPlaceFlowers {
     public void printArr(int[] arr)
     {
