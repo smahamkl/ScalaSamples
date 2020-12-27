@@ -1,2 +1,11 @@
 .DS_Store
 .vscode/settings.json
+hello-world/.metals
+hello-world/target
+hello-world/project
+hello-world/.bloop
+hello-world/build.sbt
+.metals
+.scalafmt.conf
+settings.json
+launch.json
