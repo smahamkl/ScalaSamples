@@ -24,10 +24,6 @@ Explanation: It could be decoded as "BZ" (2 26), "VF" (22 6), or "BBF" (2 2 6).
 */
 object Solution {
 
-  def printSet(s: scala.collection.mutable.ListBuffer[Int]) = {
-    println(s)
-  }
-
   def numDecodings(s: String): Int = {
     if (s.slice(0, 1).toInt == 0) 0
     else {
