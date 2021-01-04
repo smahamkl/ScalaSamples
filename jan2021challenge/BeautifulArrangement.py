@@ -23,6 +23,11 @@ Example 2:
 
 Input: n = 1
 Output: 1
+
+Solution:
+---------
+Search all the possibilities to fit one number to a position at a time. Maintain the pool of numbers not used so far (cands). One caveat or trick is to start backward from the last location. 
+This is because latter locations (bigger i) pose more constraints on what x can fit and thus prune more invalid cases.
 '''
 class Solution:
     def countArrangement(self, n: int) -> int:
