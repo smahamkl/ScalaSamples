@@ -1,45 +1,45 @@
-import scala.collection.mutable.HashSet
+import scala.collection.mutable.HashMap
+import scala.math
+/*
+Given a string s, find the length of the longest substring without repeating characters.
 
+Example 1:
+
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+*/
 object Solution{
     def lengthOfLongestSubstring(s: String): Int = {
-
         if(s.length() == 0)
             return 0
 
-        var res:String = s.charAt(0).toString()
-        val charMap:HashSet[Char] = HashSet()
-        charMap.add(s.charAt(0))
-        var curCh:Int = 0
-
-        for(i<-1 to s.length()-1)
-        {
-            if(charMap.contains(s.charAt(i))){
-                if((i - curCh) > res.length()){
-                    res = s.substring(curCh, i)
-                }
-                charMap.clear()
-                charMap.add(s.charAt(i))
-                curCh = i
-            }else if(i == (s.length() - 1)){
-                if((i - curCh + 1) > res.length()){
-                    res = s.substring(curCh, i+1)
-                }
+        val chMap:HashMap[Char, Int] = HashMap()
+        var left = 0
+        var right = 0
+        var res = 0
+        while(right < s.length()){
+            if(!chMap.contains(s(right))){
+                chMap += s(right)->1
+                res = math.max(res, right-left+1)
+                right += 1
+            }else{
+                chMap.remove(s(left))
+                left += 1            
             }
-            charMap.add(s.charAt(i))
         }
-        println(res)
-        res.length()
-        
+
+        res
     }
 
     def main(args: Array[String]):Unit = {
-        // println(lengthOfLongestSubstring("abcabcbb"))
-        // println(lengthOfLongestSubstring("bbbbbb"))
-        // println(lengthOfLongestSubstring("pwwkew"))
-        // println(lengthOfLongestSubstring("aba"))
-        // println(lengthOfLongestSubstring("a"))
-        // println(lengthOfLongestSubstring("au"))
-        // println(lengthOfLongestSubstring(""))
+        println(lengthOfLongestSubstring("abcabcbb"))
+        println(lengthOfLongestSubstring("bbbbbb"))
+        println(lengthOfLongestSubstring("pwwkew"))
+        println(lengthOfLongestSubstring("aba"))
+        println(lengthOfLongestSubstring("a"))
+        println(lengthOfLongestSubstring("au"))
+        println(lengthOfLongestSubstring(""))
         println(lengthOfLongestSubstring("dvdf"))
     }
 }
