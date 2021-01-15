@@ -9,4 +9,4 @@ hello-world/build.sbt
 .scalafmt.conf
 settings.json
 launch.json
-jan2021challenge/KthMissingNumber.class
+jan2021challenge/*.class
