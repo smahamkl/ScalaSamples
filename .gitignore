@@ -10,3 +10,4 @@ hello-world/build.sbt
 settings.json
 launch.json
 jan2021challenge/*.class
+null/scalameta/metals/cache
