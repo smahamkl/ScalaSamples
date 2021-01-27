@@ -11,12 +11,12 @@ Output: [[1,1,1,1],[1,2,2,2],[1,2,3,3]]
 */
 object SortMatrixDiagonally{
 
-    def rm(l: List[Int]):List[Int] = {
-        l match {
-            case x :: tail => tail
-            case _ => Nil
-        }
-    }
+    // def rm(l: List[Int]):List[Int] = {
+    //     l match {
+    //         case x :: tail => tail
+    //         case _ => Nil
+    //     }
+    // }
 
     def diagonalSort(mat: Array[Array[Int]]): Array[Array[Int]] = {
         var nummap:HashMap[Int,List[Int]] = HashMap()
@@ -44,7 +44,7 @@ object SortMatrixDiagonally{
                 val mapidx = row-col
                 if(nummap.contains(mapidx)){
                    mat(row)(col) = nummap.get(mapidx).get(0)
-                   nummap += mapidx -> rm(nummap.get(mapidx).get)
+                   nummap += mapidx -> nummap.get(mapidx).get.drop(1)
                 }
             }
         }
