@@ -29,7 +29,7 @@ public class LetterCaseCombination {
                 buildPermutations(res, per + curCh.toUpperCase(), S, i + 1);
             }else
                 buildPermutations(res, per + curCh, S, i + 1);
-        } else 
+        } else
             res.add(per);
     }
 
