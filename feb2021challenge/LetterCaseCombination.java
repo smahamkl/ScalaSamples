@@ -1,4 +1,4 @@
-package feb2021challenge;
+//package feb2021challenge;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -41,8 +41,8 @@ public class LetterCaseCombination {
 
     public static void main(String[] args) {
         LetterCaseCombination sol = new LetterCaseCombination();
-        //List<String> res = sol.letterCasePermutation("a1b2");
-        List<String> res = sol.letterCasePermutation("");
+        List<String> res = sol.letterCasePermutation("a1b2");
+        //List<String> res = sol.letterCasePermutation("");
         for (String s : res) {
             System.out.println(s);
         }
