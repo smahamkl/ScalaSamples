@@ -1,31 +1,31 @@
-from collections import Counter
+from collections import Counter, deque
 from typing import List
+import heapq
 
+'''
+Leetcode 621
+https://www.youtube.com/watch?v=s8p8ukTyA2I&t=613s
+'''
 class Solution:
     def leastInterval(self, tasks: List[str], n: int) -> int:
         aggcnt = Counter(tasks)
-        keys = aggcnt.keys
-        res = [None for x in range(len(tasks) * max(n, 1))]
+        maxHeap = [-cnt for cnt in aggcnt.values()]
+        heapq.heapify(maxHeap)
+        q = deque()
+        time = 0
 
-        for k in aggcnt:
-            for i,ele in enumerate(res):
-                if ele == None:
-                    tmp = i
-                    for l in range(aggcnt[k]):
-                        res[tmp] = k
-                        tmp += max(len(aggcnt), n+1)
-                    break
-
-        while not res[-1]:
-            res.pop()
-
-        for ele in res:
-            print(ele, end=",")
-        
-        print()
-        return len(res)
+        while maxHeap or q:
+            time += 1
+            if maxHeap:
+                cnt = heapq.heappop(maxHeap) + 1
+                if cnt:
+                    q.append([cnt, time + n])
+            
+            if q and q[0][1] == time:
+                heapq.heappush(maxHeap, q.popleft()[0])
 
         
+        return time
 
 
 sol = Solution()
