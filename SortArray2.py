@@ -7,28 +7,6 @@ https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/discuss/160
 from math import inf
 
 class Solution:
-    def removeDuplicates1(self, nums: List[int]) -> int:
-        
-        # Init
-        prev = inf
-        count = 0
-        
-        # from last to first element
-        for i in range(len(nums)-1,-1,-1):
-           
-            # Reset Count
-            if prev != nums[i]:
-                count = 0
-            
-            # Increment count for current number
-            count += 1
-            prev = nums[i] # previous is current
-            
-            # If count if more than 2 delete
-            if count > 2:
-                del nums[i]
-      
-        return len(nums)
     
     def removeDuplicates(self, nums: List[int]) -> int:
 
