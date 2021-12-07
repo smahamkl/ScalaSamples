@@ -55,7 +55,7 @@ class Solution:
         gas1 = [x for x in gas]*2
         cost1 = [x for x in cost]*2
         minGas = [gas1[i] - cost1[i] for i in range(len(gas1))]
-        #print(minGas)
+        print(minGas)
         for i in range(len(gas)):
             if minGas[i] > 0:
                 #print("value of i:" + str(i))
