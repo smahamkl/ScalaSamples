@@ -1,5 +1,6 @@
 from typing import List
 '''
+LeetCode 41
 Given an unsorted integer array, find the smallest missing positive integer.
 
 Example 1:
@@ -22,30 +23,19 @@ Your algorithm should run in O(n) time and uses constant extra space.
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:
 
-        maxnum = min(max(nums), len(nums))
-        print(maxnum)
-        num_arr = [0 for x in range(maxnum+2)]
+        num_map={}
+        max_val = 0
+        for i in range(len(nums)):
+            if max_val < nums[i]:
+                max_val = nums[i]
 
-        for i in nums:
-            num_arr[i] = 1
+            if (nums[i] not in num_map) and (nums[i] > 0):
+                num_map[nums[i]]=1
         
-        for i in range(1, len(num_arr)):
-            if num_arr[i] == 0:
+        print(num_map)
+        for i in range(1, max(max_val+2, 2)):
+            if i not in num_map:
                 return i
-
-        # num_map={}
-        # max_val = 0
-        # for i in range(len(nums)):
-        #     if max_val < nums[i]:
-        #         max_val = nums[i]
-
-        #     if (nums[i] not in num_map) and (nums[i] > 0):
-        #         num_map[nums[i]]=1
-        
-        # print(num_map)
-        # for i in range(1, max(max_val+2, 2)):
-        #     if i not in num_map:
-        #         return i
 
 
 
