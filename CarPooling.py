@@ -12,7 +12,7 @@ Return true if it is possible to pick up and drop off all passengers for all the
 class Solution:
     def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
         if len(trips) == 1:
-            if trips[0] > capacity: return False 
+            if trips[0][0] > capacity: return False 
             else:return True
 
         res = []
