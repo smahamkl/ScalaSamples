@@ -2,12 +2,18 @@ from collections import deque
 from operator import mod
 from typing import List
 from collections import deque
+'''
+LeetCode 752
 
+Open the lock
+https://www.youtube.com/watch?v=Pzg3bCDY87w
+'''
 class Solution:
     def openLock(self, deadends: List[str], target: str) -> int:
         ulsteps = deque()
         ulsteps.append(["0000", 0])
         visited = set("0000")
+        deadends = set(deadends)
 
         if target == "0000":
             return 0
