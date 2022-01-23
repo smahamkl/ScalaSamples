@@ -24,9 +24,9 @@ object Solution extends App{
         }
         )
 
-        numMap foreach {
-            case (k, v) => println(k, v)
-        }
+        // numMap foreach {
+        //     case (k, v) => println(k, v)
+        // }
         // println(minv, maxv, total, numMap)
         for(x <- minv to maxv)
         {
