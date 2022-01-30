@@ -1,32 +1,38 @@
 from typing import List
-
+'''
+LeetCode 473. Matchsticks to Square
+https://www.youtube.com/watch?v=hUe0cUKV-YY
+'''
 class Solution:
     def makesquare(self, matchsticks: List[int]) -> bool:
         if len(matchsticks) < 4:
             return False
         
-        totalLen = sum(matchsticks)
-        print(totalLen)
-        if totalLen % 4 != 0:
+        sideLength = sum(matchsticks) // 4
+        eachSide = [0] * 4
+
+        if sum(matchsticks)/4 !=  sideLength:
             return False
 
-        totalLen = totalLen // 4
+        matchsticks.sort(reverse=True)
+        def back_track(i:int) -> bool:
+            if i >= len(matchsticks):
+                return True
+            
+            for k in range(4):
 
-        print(totalLen)
-        tmpSum = 0
+                if eachSide[k] + matchsticks[i] <= sideLength:
 
-        for item in matchsticks:
-            tmpSum += item
+                    eachSide[k] += matchsticks[i]
 
-            if tmpSum == totalLen:
-                tmpSum = 0
-            elif tmpSum > totalLen:
-                return False
-        
-        if tmpSum >0 and tmpSum < totalLen:
+                    if back_track(i+1):
+                        return True
+                        
+                    eachSide[k] -= matchsticks[i]
+                
             return False
+        return back_track(0)
         
-        return True
 
 sol = Solution()
 # print(sol.makesquare([1,1,2,2,2]))
