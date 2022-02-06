@@ -1,6 +1,7 @@
 from typing import List
 '''
 LeetCode 473. Matchsticks to Square
+backtracking problem
 https://www.youtube.com/watch?v=hUe0cUKV-YY
 '''
 class Solution:
