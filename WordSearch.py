@@ -2,6 +2,7 @@ from typing import List
 
 '''
 LeetCode 79. Word Search
+dfs with backtracking problem
 '''
 
 class Solution:
