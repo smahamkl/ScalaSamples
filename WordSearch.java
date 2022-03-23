@@ -5,7 +5,7 @@ public class WordSearch {
     int[][] visited;
     int rowlen;
     int collen;
-    
+        
     public boolean isValid(int[] move)
     {
       if(move[0] >= 0 && move[1] >= 0 && move[0] < rowlen && move[1] < collen && visited[move[0]][move[1]] == 0)
@@ -18,12 +18,12 @@ public class WordSearch {
         if(idx >= word.length()-1)
             return true;
         
-        List<int[]> nextMoves = new ArrayList<int[]>();
+        int[][] nextMoves = new int[4][2];
         
-        nextMoves.add(new int[]{row-1, col});
-        nextMoves.add(new int[]{row+1, col});
-        nextMoves.add(new int[]{row, col+1});
-        nextMoves.add(new int[]{row, col-1});
+        nextMoves[0] = new int[]{row-1, col};
+        nextMoves[1] = new int[]{row+1, col};
+        nextMoves[2] = new int[]{row, col+1};
+        nextMoves[3] = new int[]{row, col-1};
 
         //System.out.println(row + "," + col + "," + idx);
 
@@ -72,10 +72,10 @@ public class WordSearch {
     public static void main(String[] args)
     {
         WordSearch obj = new WordSearch();
-        //char[][] board = {{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
+        char[][] board = {{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
         //char[][] board = {{'A','A'}};
-        char[][] board = {{'A','A','A','A','A','A'},{'A','A','A','A','A','A'},{'A','A','A','A','A','A'},{'A','A','A','A','A','A'},{'A','A','A','A','A','B'},{'A','A','A','A','B','A'}};
-        String word = "AAAAAAAAAAAAABB";
+        //char[][] board = {{'A','A','A','A','A','A'},{'A','A','A','A','A','A'},{'A','A','A','A','A','A'},{'A','A','A','A','A','A'},{'A','A','A','A','A','B'},{'A','A','A','A','B','A'}};
+        String word = "SEE";
         System.out.println(obj.exist(board, word));
     }
 }
