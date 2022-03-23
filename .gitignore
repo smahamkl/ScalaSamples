@@ -7,11 +7,11 @@ hello-world/.bloop
 hello-world/build.sbt
 .metals
 .scalafmt.conf
-settings.json
-launch.json
+*.json
 jan2021challenge/*.class
 null/scalameta/metals/cache
 feb2021challenge/*.class
 mar2021challenge/*.class
 TwitterDesign.class
 TwitterDesign$TweetOrder.class
+*.class
