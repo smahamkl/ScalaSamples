@@ -5,10 +5,10 @@ public class WordSearch {
     int[][] visited;
     int rowlen;
     int collen;
-
-    public boolean isValid(List<Integer> move)
+    
+    public boolean isValid(int[] move)
     {
-      if(move.get(0) >= 0 && move.get(1) >= 0 && move.get(0) < rowlen && move.get(1) < collen && visited[move.get(0)][move.get(1)] == 0)
+      if(move[0] >= 0 && move[1] >= 0 && move[0] < rowlen && move[1] < collen && visited[move[0]][move[1]] == 0)
         return true;
     
        return false;
@@ -18,18 +18,19 @@ public class WordSearch {
         if(idx >= word.length()-1)
             return true;
         
-        List<List<Integer>> nextMoves = new ArrayList<>();
-        nextMoves.add(Arrays.asList(new Integer[]{row-1, col}));
-        nextMoves.add(Arrays.asList(new Integer[]{row+1, col}));
-        nextMoves.add(Arrays.asList(new Integer[]{row, col+1}));
-        nextMoves.add(Arrays.asList(new Integer[]{row, col-1}));
+        List<int[]> nextMoves = new ArrayList<int[]>();
+        
+        nextMoves.add(new int[]{row-1, col});
+        nextMoves.add(new int[]{row+1, col});
+        nextMoves.add(new int[]{row, col+1});
+        nextMoves.add(new int[]{row, col-1});
 
         //System.out.println(row + "," + col + "," + idx);
 
-        for(List<Integer> curMove: nextMoves)
+        for(int[] curMove: nextMoves)
         {
-            int r = curMove.get(0);
-            int c = curMove.get(1);
+            int r = curMove[0];
+            int c = curMove[1];
             if(isValid(curMove) && board[r][c] == word.charAt(idx+1)){
 
                 visited[r][c] = 1;
@@ -44,11 +45,13 @@ public class WordSearch {
     }
 
     public boolean exist(char[][] board, String word) {
-        word = new StringBuilder(word).reverse().toString();
 
         rowlen = board.length;
         collen = board[0].length;
         visited = new int[rowlen][collen];
+
+        if(word.length() > (rowlen * collen))
+            return false;
 
         for(int i=0;i<rowlen;i++)
         {
