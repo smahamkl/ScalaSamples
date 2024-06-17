@@ -2,7 +2,7 @@ object OptionSample extends App {
 
   def toInt(value: String): Option[Int] = {
 
-    try {
+   try {
       Some(Integer.parseInt(value))
     } catch {
       case e: Exception => None

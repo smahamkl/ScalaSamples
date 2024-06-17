@@ -1,3 +1,5 @@
+import scala.collection.mutable
+
 /*
 METHOD 2 (Use Queue)
 Algorithm:

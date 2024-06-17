@@ -12,7 +12,7 @@ Explanation: The answer is "abc", with the length of 3.
 Solution:
 https://leetcode.com/problems/longest-substring-without-repeating-characters/solution/
 */
-object Solution{
+object Solution3{
     def lengthOfLongestSubstring(s: String): Int = {
         if(s.length() == 0)
             return 0

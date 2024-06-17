@@ -1,4 +1,4 @@
-object Practice1{
+object Practice2{
 
     def toInt(value: String): Option[Int] = {
         try {

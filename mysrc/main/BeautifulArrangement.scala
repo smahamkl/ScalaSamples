@@ -1,3 +1,5 @@
+package mysrc.main
+
 object BeautifulArrangement {
   def main(args: Array[String]): Unit = {
     println(countArrangement(4))

@@ -1,3 +1,5 @@
+package mysrc.main
+
 object JumpGame4 {
 
   def minJumps(arr: Array[Int]): Int = {

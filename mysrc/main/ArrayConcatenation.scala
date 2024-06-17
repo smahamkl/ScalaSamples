@@ -1,3 +1,5 @@
+package mysrc.main
+
 import scala.collection.mutable.HashMap
 /*
 You are given an array of distinct integers arr and an array of integer arrays pieces, where the integers in pieces are distinct.

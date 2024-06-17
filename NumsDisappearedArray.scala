@@ -8,7 +8,7 @@ LeetCode - 448
 Find All Numbers Disappeared in an Array
 */
 
-object Solution extends App{
+object Solution1 extends App{
     def findDisappearedNumbers(nums: Array[Int]): List[Int] = {
 
         var minv = Int.MaxValue

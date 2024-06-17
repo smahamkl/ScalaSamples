@@ -1,3 +1,5 @@
+package mysrc.main
+
 import scala.math
 import scala.collection.mutable.Stack
 /*

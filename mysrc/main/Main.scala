@@ -1,3 +1,5 @@
+package mysrc.main
+
 /*
 A message containing letters from A-Z is being encoded to numbers using the following mapping:
 
@@ -22,7 +24,7 @@ Input: s = "226"
 Output: 3
 Explanation: It could be decoded as "BZ" (2 26), "VF" (22 6), or "BBF" (2 2 6).
 */
-object Solution {
+object Solution2 {
 
   def numDecodings(s: String): Int = {
     if (s.slice(0, 1).toInt == 0) 0

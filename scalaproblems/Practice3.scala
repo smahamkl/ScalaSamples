@@ -1,4 +1,4 @@
-object Practice1{
+object Practice3{
 
     def findLCA(node:MyNode, val1: Int, val2: Int): Option[MyNode] = {
         if(node.value == val1 || node.value == val2) Some(node)
@@ -13,8 +13,7 @@ object Practice1{
         }
     }
 
-    def main(args: Array[String])
-    {
+    def main(args: Array[String]): Unit = {
             val tree = MyNode(1,
       Some(MyNode(2,
         Some(MyNode(4, None, None)),
